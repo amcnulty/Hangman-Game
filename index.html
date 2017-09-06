@@ -1,1 +1,48 @@
-"" 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hangman | A Fun Game Of Hangman!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+    <div id="mainContent">
+        <div id="logo"></div>
+        <div id="category">
+            <h1>Pick A Category</h1>
+            <div id="buttonGroup">
+                <input type="radio" class="radioButton" id="animalChoice" name="category" value="animal" checked>
+                <label class="radioLabel" for="animalChoice">Animal</label>
+                <input type="radio" class="radioButton" id="sportsChoice" name="category" value="sports">
+                <label class="radioLabel" for="sportsChoice">Sports</label>
+                <input type="radio" class="radioButton" id="musicChoice" name="category" value="music">
+                <label class="radioLabel" for="musicChoice">Music</label>
+                <input type="radio" class="radioButton" id="transportChoice" name="category" value="transport">
+                <label class="radioLabel" for="transportChoice">Transport</label>
+            </div>
+        </div>
+        <div id="currentWord">
+            <h1>Current Word</h1>
+            <p id="gameWord">P U _ _ Y</p>
+
+        </div>
+        <div id="hangingMan">
+
+        </div>
+        <div id="gameInfo">
+            <p id="anyKey">
+                Press any key to get started!
+            </p>
+            <p>Wins: <span class="spanInfo" id="numOfWins">2</span></p>
+            <p>Number Of Guesses Remaining: <span class="spanInfo" id="numOfGuesses">5</span></p>
+            <p>Letters Already Guessed: <span class="spanInfo" id="lettersGuessed">L K R W</span></p>
+        </div>
+    </div>
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+</html>

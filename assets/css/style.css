@@ -1,1 +1,154 @@
-"" 
+html, body {
+    font-family: 'Architects Daughter', cursive;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#mainContent {
+    width: 100%;
+    height: 100vh;
+    background: url("../images/background.jpg") repeat repeat;
+}
+
+#logo {
+    position: fixed;
+    width: 80%;
+    margin-left: 10%;
+    height: 90vh;
+    background: url("../images/logo.png") center center no-repeat;
+    background-size: contain;
+    visibility: hidden;
+    /* animation: 3s showLogo; */
+    z-index: -4;
+}
+
+@keyframes showSection {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+    74% {
+        visibility: hidden;
+        opacity: 0;
+    }
+    75% {
+        visibility: visible;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+    
+@keyframes showLogo {
+    0% {
+        visibility: visible;
+        opacity: 0;
+        transform: scale(1) rotateX(90deg);
+        z-index: 50;
+    }
+    25% {
+        opacity: 1;
+        transform: scale(1) rotatex(0deg);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    75% {
+        transform: scale(1);
+    }
+    90% {
+        visibility: visible;
+        opacity: 1;
+        z-index: 50;
+    }
+    100% {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+#category {
+    width: 80%;
+    height: 120px;
+    margin: 0 auto;
+    background-color: green;
+    /* animation: 4s showSection; */
+}
+
+#category h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#buttonGroup {
+    text-align: center;
+}
+
+.radioButton {
+    display: none;
+}
+
+.radioButton:hover + label {
+    color: whitesmoke;
+    border-color: whitesmoke;
+}
+
+.radioButton:checked + label {
+    color: red;
+    border-color: red;
+}
+
+.radioLabel {
+    border: 2px solid black;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 5px 8px 5px 8px;
+}
+
+#currentWord {
+    width: 80%;
+    height: 100px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: teal;
+    /* animation: 4.5s showSection; */
+}
+
+#gameWord {
+    font-size: 2.2em;
+    margin-top: 20px;
+}
+
+#hangingMan {
+    position: absolute;
+    bottom: 50px;
+    width: 40%;
+    height: 450px;
+    margin-left: 5%;
+    background-color: red;
+    /* animation: 5s showSection; */
+}
+
+#gameInfo {
+    position: absolute;
+    bottom: 50px;
+    right: 0px;
+    width: 40%;
+    height: 450px;
+    margin-right: 5%;
+    background-color: goldenrod;
+    /* animation: 5.5s showSection; */
+}
+
+#gameInfo p {
+    margin: 50px 0px 0px 40px;
+}
+
+.spanInfo {
+    color: red;
+    font-size: 1.1em;
+    font-weight: bold;
+}
