@@ -140,12 +140,10 @@ function load() {
                 var myJSON = JSON.parse(xhr.responseText);
                 var randomIndex = Math.floor(Math.random() * (myJSON.length));
                 var newWord = myJSON[randomIndex].word;
-                console.log(newWord);
                 while (newWord.indexOf(' ') != -1 || newWord.indexOf('-') != -1) {
                     randomIndex = Math.floor(Math.random() * (myJSON.length));
                     newWord = myJSON[randomIndex].word;
                 }
-                console.log(newWord);
                 myGame.setWord(newWord);
                 var newDisplayWord = '';
                 for (var i = 0; i < newWord.length; i++) {
