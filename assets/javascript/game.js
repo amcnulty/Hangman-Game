@@ -99,6 +99,12 @@ function load() {
             myGame.setLettersGuessed(myGame.getLettersGuessed());
         }
     }
+    var ding = new Audio("assets/sounds/happy_ding.mp3");
+    Game.prototype.playSound = function(sound) {
+        if (sound === "ding" && ding.paused) {
+            ding.play();
+        }
+    }
     
     Game.prototype.checkVictory = function(displayWord) {
         var victory = true;
@@ -144,6 +150,7 @@ function load() {
                     randomIndex = Math.floor(Math.random() * (myJSON.length));
                     newWord = myJSON[randomIndex].word;
                 }
+                console.log(newWord);
                 myGame.setWord(newWord);
                 var newDisplayWord = '';
                 for (var i = 0; i < newWord.length; i++) {
@@ -169,6 +176,7 @@ function load() {
                     if (ii === i) newChars += char;
                     else newChars += '_';
                 }
+                myGame.playSound("ding");
                 myGame.setDisplayWord(myGame.addChars(newChars));
             }
         }
