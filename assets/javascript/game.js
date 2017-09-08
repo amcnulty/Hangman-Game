@@ -169,7 +169,6 @@ function load() {
                     randomIndex = Math.floor(Math.random() * (myJSON.length));
                     newWord = myJSON[randomIndex].word;
                 }
-                console.log(newWord);
                 myGame.setWord(newWord);
                 var newDisplayWord = '';
                 for (var i = 0; i < newWord.length; i++) {
@@ -195,7 +194,7 @@ function load() {
                     if (ii === i) newChars += char;
                     else newChars += '_';
                 }
-                myGame.playSound("ding");
+                if (myGame.getDisplayWord().indexOf(char) === -1) myGame.playSound("ding");
                 myGame.setDisplayWord(myGame.addChars(newChars));
             }
         }
