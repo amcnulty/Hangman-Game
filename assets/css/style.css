@@ -23,7 +23,7 @@ h1 {
     background: url("../images/logo.png") center center no-repeat;
     background-size: contain;
     visibility: hidden;
-    animation: 3s showLogo;
+    /* animation: 3s showLogo; */
     z-index: -4;
 }
 
@@ -73,14 +73,20 @@ h1 {
 }
 
 #category {
-    width: 50%;
-    height: 100px;
-    margin: 0 auto;
+    position: relative;
+    left: 50%;
+    display: inline-block;
     margin-bottom: 20px;
+    padding: 10px 30px 10px 30px;
     background-color: rgba(119,190,245, .7);
     box-shadow: 3px 3px 5px 3px rgb(3,103,180);
     border-radius: 30px;
-    animation: 4s showSection;
+    -webkit-transform: translate(-50%, 0%);
+    -moz-transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
+    -o-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+    /* animation: 4s showSection; */
 }
 
 #category h1 {
@@ -96,11 +102,6 @@ h1 {
     display: none;
 }
 
-.radioButton:hover + label {
-    color: #1976D2;
-    border-color: #1976D2;
-}
-
 .radioButton:checked + label {
     color: #8C5000;
     border-color: #8C5000;
@@ -108,10 +109,41 @@ h1 {
 
 .radioLabel {
     border: 2px solid #0808C0;
+    color: #0808C0;
+    font-family: 'Architects Daughter', cursive;
     cursor: pointer;
     font-size: 1.2em;
     font-weight: bold;
     padding: 5px 8px 5px 8px;
+    background: none;
+}
+
+.radioLabel:hover {
+    border-color: #1976D2;
+    color: #1976D2;
+}
+
+#customCategoryInput {
+    margin-top: 10px;
+    margin-bottom: 6px;
+}
+
+.userInput {
+    font-size: 1.2em;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #1976D2;
+    padding: 5px 0px 5px 8px;
+    color: #0808C0;
+}
+
+.userInput:focus {
+    border-bottom: 2px solid #0808C0;
+}
+
+#userGuessInput {
+    display: none;   
 }
 
 #currentWord {
@@ -123,7 +155,7 @@ h1 {
     background-color: rgba(119,190,245, .7);
     box-shadow: 3px 3px 5px 3px rgb(3,103,180);
     border-radius: 30px;
-    animation: 4.5s showSection;
+    /* animation: 4.5s showSection; */
 }
 
 #gameWord {
@@ -140,7 +172,7 @@ h1 {
     background-color: rgba(119,190,245, .7);
     box-shadow: 3px 3px 5px 3px rgb(3,103,180);
     border-radius: 30px;
-    animation: 5s showSection;
+    /* animation: 5s showSection; */
 }
 
 #hangingMan {
@@ -157,7 +189,7 @@ h1 {
     background-color: rgba(119,190,245, .7);
     box-shadow: 3px 3px 5px 3px rgb(3,103,180);
     border-radius: 30px;
-    animation: 5.5s showSection;
+    /* animation: 5.5s showSection; */
 }
 
 #gameInfo p {
@@ -181,6 +213,7 @@ h1 {
     top: 0px;
     margin-left: 10%;
     background: url("../images/gameWon.png") center center no-repeat;
+    background-size: contain;
     z-index: -5;
     visibility: hidden;
 }
@@ -207,6 +240,7 @@ h1 {
     top: 0px;
     margin-left: 10%;
     background: url("../images/gameLost.png") center center no-repeat;
+    background-size: contain;
     z-index: -5;
     visibility: hidden;
 }
@@ -242,4 +276,74 @@ footer {
 footer p {
     margin-right: 30px;
     line-height: 30px;
+}
+
+@media screen and (max-width: 1279px) {
+    h1 {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    #mainContent {
+        padding-top: 2px;
+    }
+
+    #category {
+        margin-bottom: 10px;
+        padding: 0px 0px 2px 0px;
+    }
+    
+    #category h1 {
+        margin-bottom: 16px;
+    }
+
+    .radioLabel {
+        font-size: 1em;
+        padding: 4px 2px 4px 2px;
+        margin: 12px 0px 12px 0px;
+    }
+
+    #customCategoryInput, #userGuessInput {
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #newWordButton {
+        margin: 4px 0px -12px 0px;
+    }
+
+    #userGuessInput {
+        display: block;
+        width: 150px;
+    }
+    
+    #currentWord {
+        width: 98%;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+
+    #gameWord {
+        font-size: 1em;
+        letter-spacing: .8em;
+        margin-top: 2px;
+    }
+
+    #hangingManBack {
+        display: none;
+    }
+
+    #gameInfo {
+        width: 98%;
+        height: auto;
+        float: none;
+        font-size: 1em;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    #gameInfo p {
+        margin: 0px;
+    }
 }

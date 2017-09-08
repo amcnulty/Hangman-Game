@@ -10,8 +10,12 @@ function load() {
     var musicLabel = musicButton.nextElementSibling;
     var transportButton = document.getElementById("transportChoice");
     var transportLabel = transportButton.nextElementSibling;
-
+    
     var radioButtons = document.getElementsByClassName("radioButton");
+    radioButtons[0].checked = true;
+    var customCategoryInput = document.getElementById("customCategoryInput");
+    var newWordButton = document.getElementById("newWordButton");
+    var userGuessInput = document.getElementById("userGuessInput");
     var gameWord = document.getElementById("gameWord");
     var winsSpan = document.getElementById("numOfWins");
     var guessesLeftSpan = document.getElementById("numOfGuesses");
@@ -19,7 +23,8 @@ function load() {
     var hangingMan = document.getElementById("hangingMan");
     var gameWon = document.getElementById("gameWon");
     var gameLost = document.getElementById("gameLost");
-
+    var ding = new Audio("assets/sounds/happy_ding.mp3");
+    
     var myGame = new Game();
     
     function Game() {
@@ -29,19 +34,19 @@ function load() {
         this.guessesLeft = 8;
         this.lettersGuessed = [];
     }
-
+    
     Game.prototype.getWord = function() {
         return this.word;
     }
-
+    
     Game.prototype.setWord = function(word) {
         this.word = word;
     }
-
+    
     Game.prototype.getDisplayWord = function() {
         return this.displayWord;
     }
-
+    
     Game.prototype.setDisplayWord = function(displayWord) {
         this.displayWord = displayWord;
         gameWord.innerHTML = displayWord;
@@ -99,10 +104,16 @@ function load() {
             myGame.setLettersGuessed(myGame.getLettersGuessed());
         }
     }
-    var ding = new Audio("assets/sounds/happy_ding.mp3");
+
     Game.prototype.playSound = function(sound) {
         if (sound === "ding" && ding.paused) {
             ding.play();
+        }
+    }
+
+    Game.prototype.deselectRadioButtons = function() {
+        for (var i = 0; i < radioButtons.length; i++) {
+            radioButtons[i].checked = false;
         }
     }
     
@@ -116,11 +127,11 @@ function load() {
         }
         return victory;
     }
-
+    
     Game.prototype.gameWon = function() {
         gameWon.className = "gameWon";
     }
-
+    
     Game.prototype.gameLost = function() {
         gameLost.className = "gameLost";
     }
@@ -129,7 +140,7 @@ function load() {
         myGame.generateWord();
         myGame.setGuessesLeft(8);
         myGame.setLettersGuessed([]);
-
+        
     }
     
     Game.prototype.generateWord = function() {
@@ -139,13 +150,21 @@ function load() {
                 category = radioButtons[i].value;
             }
         }
+        if (category === null) {
+            category = customCategoryInput.value.replace(/\s+/g, '+').toLowerCase();
+        }
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "https://api.datamuse.com/words?ml=" + category, true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
                 var myJSON = JSON.parse(xhr.responseText);
                 var randomIndex = Math.floor(Math.random() * (myJSON.length));
-                var newWord = myJSON[randomIndex].word;
+                try {
+                    var newWord = myJSON[randomIndex].word;
+                }
+                catch (e) {
+                    alert("Custom Category Return No Results.\nPlease Try Again.");
+                }
                 while (newWord.indexOf(' ') != -1 || newWord.indexOf('-') != -1) {
                     randomIndex = Math.floor(Math.random() * (myJSON.length));
                     newWord = myJSON[randomIndex].word;
@@ -164,7 +183,7 @@ function load() {
         }
         xhr.send(null);
     }
-
+    
     Game.prototype.checkChar = function(char) {
         var myWord = myGame.getWord();
         var match = false;
@@ -182,7 +201,7 @@ function load() {
         }
         if (!match) myGame.addLetterGuessed(char);
     }
-
+    
     Game.prototype.addChars = function(chars) {
         var newDisplayWord = '';
         for (var i = 0; i < myGame.getWord().length; i++) {
@@ -194,24 +213,34 @@ function load() {
         }
         return newDisplayWord;
     }
-
+    
     myGame.newGame();
-
+    
     document.addEventListener("keyup", function(e) {
-        if (e.keyCode >= 65 && e.keyCode <= 90) myGame.checkChar(e.key);
+        userGuessInput.value = e.key;
+        if (e.keyCode >= 65 && e.keyCode <= 90 && customCategoryInput != document.activeElement) myGame.checkChar(e.key);
     }, false);
-
+    
     for (var i = 0; i < radioButtons.length; i++) {
         radioButtons[i].addEventListener("click", function() {
             myGame.newGame();
+            customCategoryInput.value = '';
         }, false);
     }
+
+    customCategoryInput.addEventListener("click", function() {
+        myGame.deselectRadioButtons();
+    }, false);
+
+    newWordButton.addEventListener("click", function() {
+        myGame.generateWord();
+    }, false);
 
     gameWon.addEventListener("animationend", function() {
         gameWon.className = '';
         myGame.newGame();
     }, false);
-
+    
     gameLost.addEventListener("animationend", function() {
         gameLost.className = '';
         myGame.newGame();

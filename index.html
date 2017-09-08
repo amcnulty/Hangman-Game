@@ -15,8 +15,8 @@
         <div id="logo"></div>
         <div id="category">
             <h1>Pick A Category</h1>
-            <div id="buttonGroup">
-                <input type="radio" class="radioButton" id="animalChoice" name="category" value="animal" checked>
+            <form id="buttonGroup">
+                <input type="radio" class="radioButton" id="animalChoice" name="category" value="animal">
                 <label class="radioLabel" for="animalChoice">Animal</label>
                 <input type="radio" class="radioButton" id="sportsChoice" name="category" value="sports">
                 <label class="radioLabel" for="sportsChoice">Sports</label>
@@ -24,7 +24,13 @@
                 <label class="radioLabel" for="musicChoice">Music</label>
                 <input type="radio" class="radioButton" id="transportChoice" name="category" value="transport">
                 <label class="radioLabel" for="transportChoice">Transport</label>
-            </div>
+                <br>
+                <input type="text" class="userInput" id="customCategoryInput" placeholder="Custom Category">
+                <br>
+                <input type="button" class="radioLabel" id="newWordButton" value="New Word">
+                <br>
+                <input type="text" class="userInput" id="userGuessInput" placeholder="Guess a Letter">
+            </form>
         </div>
         <div id="currentWord">
             <h1>Current Word</h1>
