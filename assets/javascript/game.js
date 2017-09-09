@@ -325,13 +325,13 @@ function load() {
             document.documentElement.clientWidth
           );
         if (num < 1280) {
-            letter = userGuessInput.value;
+            letter = userGuessInput.value.toLowerCase();
         }
         else {
             letter = String.fromCharCode(e.keyCode).toLowerCase();
         }
         userGuessInput.value = '';
-        userGuessInput.placeholder = letter.toLowerCase();
+        userGuessInput.placeholder = letter;
         if (letter.toUpperCase().charCodeAt(0) >= 65 && letter.toUpperCase().charCodeAt(0) <= 90 && customCategoryInput != document.activeElement) myGame.checkChar(letter);
     }, false);
     // Listener for the radio buttons when clicked.
