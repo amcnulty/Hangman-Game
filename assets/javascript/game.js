@@ -326,6 +326,7 @@ function load() {
           );
         if (num < 1280) {
             letter = userGuessInput.value;
+            alert(letter);
         }
         else {
             letter = String.fromCharCode(e.keyCode).toLowerCase();
