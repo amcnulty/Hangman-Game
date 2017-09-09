@@ -316,8 +316,9 @@ function load() {
     myGame.newGame();
     // Listener for keyup event.
     document.addEventListener("keyup", function(e) {
-        userGuessInput.value = e.key;
-        if (e.keyCode >= 65 && e.keyCode <= 90 && customCategoryInput != document.activeElement) myGame.checkChar(e.key);
+        var letter = String.fromCharCode(event.keyCode).toLowerCase();
+        userGuessInput.value = letter;
+        if (e.keyCode >= 65 && e.keyCode <= 90 && customCategoryInput != document.activeElement) myGame.checkChar(letter);
     }, false);
     // Listener for the radio buttons when clicked.
     for (var i = 0; i < radioButtons.length; i++) {
