@@ -331,7 +331,7 @@ function load() {
             letter = String.fromCharCode(e.keyCode).toLowerCase();
         }
         userGuessInput.value = '';
-        userGuessInput.placeholder = letter;
+        userGuessInput.placeholder = letter.toLowerCase();
         if (letter.toUpperCase().charCodeAt(0) >= 65 && letter.toUpperCase().charCodeAt(0) <= 90 && customCategoryInput != document.activeElement) myGame.checkChar(letter);
     }, false);
     // Listener for the radio buttons when clicked.
