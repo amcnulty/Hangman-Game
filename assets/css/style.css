@@ -128,6 +128,21 @@ h1 {
     margin-bottom: 6px;
 }
 
+::-webkit-input-placeholder { /* Chrome */
+    color: #0808C0;
+  }
+:-ms-input-placeholder { /* IE 10+ */
+    color: #0808C0;
+  }
+::-moz-placeholder { /* Firefox 19+ */
+    color: #0808C0;
+    opacity: 1;
+  }
+:-moz-placeholder { /* Firefox 4 - 18 */
+    color: #0808C0;
+    opacity: 1;
+}
+
 .userInput {
     font-size: 1.2em;
     background: none;
@@ -261,7 +276,7 @@ h1 {
 }
 
 footer {
-    position: fixed;
+    position: absolute;
     bottom: 0px;
     width: 100%;
     height: 30px;
