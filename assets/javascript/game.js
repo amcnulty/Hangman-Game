@@ -242,27 +242,27 @@ function load() {
             category = customCategoryInput.value.replace(/\s+/g, '+').toLowerCase();
         }
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "https://api.datamuse.com/words?ml=" + category, true);
+        xhr.open("GET", "//api.datamuse.com/words?ml=" + category, true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
                 var myJSON = JSON.parse(xhr.responseText);
                 var randomIndex = Math.floor(Math.random() * (myJSON.length));
                 try {
                     var newWord = myJSON[randomIndex].word;
+                    while (newWord.indexOf(' ') != -1 || newWord.indexOf('-') != -1) {
+                        randomIndex = Math.floor(Math.random() * (myJSON.length));
+                        newWord = myJSON[randomIndex].word;
+                    }
+                    myGame.setWord(newWord);
+                    var newDisplayWord = '';
+                    for (var i = 0; i < newWord.length; i++) {
+                        newDisplayWord += "_";
+                    }
+                    myGame.setDisplayWord(newDisplayWord);
                 }
                 catch (e) {
                     alert("Custom Category Return No Results.\nPlease Try Again.");
                 }
-                while (newWord.indexOf(' ') != -1 || newWord.indexOf('-') != -1) {
-                    randomIndex = Math.floor(Math.random() * (myJSON.length));
-                    newWord = myJSON[randomIndex].word;
-                }
-                myGame.setWord(newWord);
-                var newDisplayWord = '';
-                for (var i = 0; i < newWord.length; i++) {
-                    newDisplayWord += "_";
-                }
-                myGame.setDisplayWord(newDisplayWord);
             }
             else {
                 // There has been a problem
