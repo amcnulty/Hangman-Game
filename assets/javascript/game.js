@@ -326,13 +326,13 @@ function load() {
           );
         if (num < 1280) {
             letter = userGuessInput.value;
-            alert(letter);
         }
         else {
             letter = String.fromCharCode(e.keyCode).toLowerCase();
         }
         userGuessInput.value = '';
         userGuessInput.placeholder = letter;
+        alert(letter.charCodeAt(0));
         if (e.keyCode >= 65 && e.keyCode <= 90 && customCategoryInput != document.activeElement) myGame.checkChar(letter);
     }, false);
     // Listener for the radio buttons when clicked.
