@@ -23,7 +23,7 @@ h1 {
     background: url("../images/logo.png") center center no-repeat;
     background-size: contain;
     visibility: hidden;
-    /* animation: 3s showLogo; */
+    animation: 3s showLogo;
     z-index: -4;
 }
 
@@ -86,7 +86,7 @@ h1 {
     -ms-transform: translate(-50%, 0%);
     -o-transform: translate(-50%, 0%);
     transform: translate(-50%, 0%);
-    /* animation: 4s showSection; */
+    animation: 4s showSection;
 }
 
 #category h1 {
@@ -155,7 +155,7 @@ h1 {
     background-color: rgba(119,190,245, .7);
     box-shadow: 3px 3px 5px 3px rgb(3,103,180);
     border-radius: 30px;
-    /* animation: 4.5s showSection; */
+    animation: 4.5s showSection;
 }
 
 #gameWord {
@@ -172,7 +172,7 @@ h1 {
     background-color: rgba(119,190,245, .7);
     box-shadow: 3px 3px 5px 3px rgb(3,103,180);
     border-radius: 30px;
-    /* animation: 5s showSection; */
+    animation: 5s showSection;
 }
 
 #hangingMan {
@@ -189,7 +189,7 @@ h1 {
     background-color: rgba(119,190,245, .7);
     box-shadow: 3px 3px 5px 3px rgb(3,103,180);
     border-radius: 30px;
-    /* animation: 5.5s showSection; */
+    animation: 5.5s showSection;
 }
 
 #gameInfo p {
