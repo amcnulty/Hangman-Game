@@ -332,8 +332,7 @@ function load() {
         }
         userGuessInput.value = '';
         userGuessInput.placeholder = letter;
-        alert(letter.charCodeAt(0));
-        if (e.keyCode >= 65 && e.keyCode <= 90 && customCategoryInput != document.activeElement) myGame.checkChar(letter);
+        if (letter.toUpperCase().charCodeAt(0) >= 65 && letter.toUpperCase().charCodeAt(0) <= 90 && customCategoryInput != document.activeElement) myGame.checkChar(letter);
     }, false);
     // Listener for the radio buttons when clicked.
     for (var i = 0; i < radioButtons.length; i++) {
