@@ -316,7 +316,7 @@ function load() {
     myGame.newGame();
     // Listener for keyup event.
     document.addEventListener("keyup", function(e) {
-        var letter = String.fromCharCode(event.keyCode).toLowerCase();
+        var letter = String.fromCharCode(e.keyCode).toLowerCase();
         userGuessInput.value = letter;
         if (e.keyCode >= 65 && e.keyCode <= 90 && customCategoryInput != document.activeElement) myGame.checkChar(letter);
     }, false);
