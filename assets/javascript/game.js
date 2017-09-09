@@ -317,7 +317,14 @@ function load() {
     // Listener for keyup event.
     document.addEventListener("keyup", function(e) {
         var letter = '';
-        if (userGuessInput.style.display === "block") {
+        var num = Math.max(
+            document.body.scrollWidth,
+            document.documentElement.scrollWidth,
+            document.body.offsetWidth,
+            document.documentElement.offsetWidth,
+            document.documentElement.clientWidth
+          );
+        if (num < 1280) {
             letter = userGuessInput.value;
         }
         else {
