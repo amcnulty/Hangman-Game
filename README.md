@@ -3,6 +3,7 @@ A game of Hangman for mobile and desktop browsers. Makes use of the Datamuse API
 
 ## Open For Peer Review
 <h3>All code is open for peer review. All comments in code are to explain what the code is doing.</h3>
+
 * Check out open issues that need to be closed to reach a certain milestone.
 * Fork this repo and see if you can fix any issues there might be.
 * If you see a bug message me about it and I will create a new issue.
