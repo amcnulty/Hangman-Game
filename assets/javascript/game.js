@@ -355,8 +355,10 @@ function load() {
         myGame.newGame();
     }, false);
     // Listener for the game lost animation end to start a new game.
+    // Also alerts the user what the correct word was before starting new game.
     gameLost.addEventListener("animationend", function() {
         gameLost.className = '';
+        alert("Game Over..." + "\n\nThe correct word was: " + myGame.getWord() + "\n\nTry again!!");
         myGame.newGame();
     }, false);
 }
