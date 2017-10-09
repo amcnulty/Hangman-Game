@@ -16,9 +16,6 @@ A game of Hangman for mobile and desktop browsers. Makes use of the Datamuse API
 4. Organize game code as an object in JavaScript.
 5. Make game compatible with mobile browsers.
 
-## Due date
-Saturday, September 16<sup>th</sup> 2017 9:00 AM
-
 ## Links
 * [Game Link](https://amcnulty.github.io/Hangman-Game/ "A fun game of Hangman!")
 * [Datamuse API](https://www.datamuse.com/api/ "A word-finding query engine for developers.")
